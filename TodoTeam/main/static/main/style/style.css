@@ -25,13 +25,17 @@ header {
 .logo-text {
     padding-top: 15px;
      font-family: "Arvo", serif;
-     font-weight: 400;
+     font-weight: 700;
      font-style: normal;
 }
-.navigation {
-
-
+.navigation li a {
+    font-size:13px;
 }
-@media screen {
-    
+.auth_button {
+    background-color: #F28378;
+    color: #FFFFFF;
+    font-size:13px;
+    padding: 10px 32px;
+    border-radius: 18px;
+    box-shadow: 1px 5px 30px 1px rgba(0, 0, 0, 0.5);
 }
