@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import settings
 class Task(models.Model):
     title_task = models.CharField(max_length=100)
     description_task = models.TextField()
@@ -8,6 +9,7 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.ForeignKey('TaskStatus', on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL,blank=True, null=True)
 
     def __str__(self):
         return self.title_task
@@ -21,3 +23,4 @@ class TaskStatus(models.Model):
 
     def __str__(self):
         return self.name_task
+
