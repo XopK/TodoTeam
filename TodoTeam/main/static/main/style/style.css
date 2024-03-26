@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.dela-gothic one-regular {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+    font-family: "Dela Gothic One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+header {
+    background-color: #614EA7;
+    font-family: "Dela Gothic One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.logo_block {
+    display: flex;
+    align-items: center;
+}
+.logo-text {
+    padding-top: 15px;
+     font-family: "Arvo", serif;
+     font-weight: 400;
+     font-style: normal;
+}
+.navigation {
+
+
+}
+@media screen {
+    
+}
