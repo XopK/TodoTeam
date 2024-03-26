@@ -1,0 +1,23 @@
+[
+    {
+        "model": "task.TaskStatus",
+        "pk": 1,
+        "fields": {
+            "name_task": "К выполнению"
+        }
+    },
+    {
+        "model": "task.TaskStatus",
+        "pk": 2,
+        "fields": {
+            "name_task": "В процессе"
+        }
+    },
+    {
+        "model": "task.TaskStatus",
+        "pk": 3,
+        "fields": {
+            "name_task": "Выполнено"
+        }
+    }
+]
