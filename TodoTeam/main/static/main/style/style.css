@@ -39,3 +39,14 @@ header {
     border-radius: 18px;
     box-shadow: 1px 5px 30px 1px rgba(0, 0, 0, 0.5);
 }
+.main_one h1 {
+    color: #150D4D;
+}
+.main_one p {
+    color:  #776DE1;
+}
+.main_one_a {
+    color: #FFFFFF;
+    background-color: #F28378;
+    padding: 28px 65px;
+}
