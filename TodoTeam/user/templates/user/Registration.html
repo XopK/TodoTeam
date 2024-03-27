@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Вход
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <div class="d-flex">
+        <div class="d-flex">
+            <h1>Регистрации</h1>
+            <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Имя</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
+                <div class="mb-3">
+                     <label for="exampleInputEmail1" class="form-label">Фамилия</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                 </div>
+                 <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Логин</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-primary">Создать аккаунт</button>
+</form>
+          <a href="{% url "registration"%}">  Есть аккаунт? Войдите! </a>
+
+
+        </div>
+        <img src="" alt="Картинка">
+    </div>
+</section>
+{% endblock %}
