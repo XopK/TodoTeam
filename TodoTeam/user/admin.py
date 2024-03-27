@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Command, CommandUser, favorite
 
-# Register your models here.
+admin.site.register(CommandUser)
+admin.site.register(Command)
+admin.site.register(favorite)

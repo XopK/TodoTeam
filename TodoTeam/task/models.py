@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth import settings
+from user.models import Command
+
 class Task(models.Model):
     title_task = models.CharField(max_length=100)
     description_task = models.TextField()
@@ -9,10 +10,12 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.ForeignKey('TaskStatus', on_delete=models.CASCADE, null=True, blank=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL,blank=True, null=True)
+    command = models.ForeignKey(Command, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return self.title_task
+        task_title = self.title_task
+        command_name = self.command.name_command if self.command else 'Нет команды'
+        return f'{task_title} - {command_name}'
 
     class Meta:
         verbose_name_plural = "Задачи"
@@ -23,4 +26,5 @@ class TaskStatus(models.Model):
 
     def __str__(self):
         return self.name_task
+
 
