@@ -26,8 +26,8 @@
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <div class="col-md-3 mb-2 mb-md-0">
                 <a href="{% url 'index' %}" class="logo_block text-white text-decoration-none">
-                <img src="{% static 'main/image/logo.svg' %}" alt="лого">
-                <p class="logo-text fs-3">TodoTeam</p>
+                    <img src="{% static 'main/image/logo.svg' %}" alt="лого">
+                    <p class="logo-text fs-3">TodoTeam</p>
                 </a>
             </div>
 
@@ -36,10 +36,18 @@
                 <li><a href="/#whyus" class="nav-link px-4 text-white ">Почему мы?</a></li>
                 <li><a href="/#questions" class="nav-link px-4 text-white ">Вопросы</a></li>
             </ul>
-
+            {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+            <a href="{% url 'admin:index' %}" class="btn auth_button">Админка</a>
+            {% else %}
+            <a href="#" class="btn auth_button">Личный кабинет</a>
+            {% endif %}
+            {% else %}
             <div class="col-md-3 text-end">
                 <a href="{% url 'sign_in' %}" class="btn auth_button">Войти</a>
             </div>
+            {% endif %}
+
         </header>
     </div>
 </div>
