@@ -9,24 +9,30 @@
     <div class="d-flex justify-content-evenly m-3 Registaration">
         <div class="form_template d-flex flex-column align-items-center text-white gap-3">
             <h1>Вход</h1>
-            <form method="post" >
+            <form method="post">
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Логин</label>
-                    {{form.username}}
+                    {{ form.username }}
+                    {% for error in form.username.errors %}
+                    <div class="text-warning">{{ error }}</div>
+                    {% endfor %}
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                    {{ form.password1 }}
+                    {{ form.password }}
+                    {% for error in form.password.errors %}
+                    <div class="text-warning">{{ error }}</div>
+                    {% endfor %}
                 </div>
-
+                {% if form.non_field_errors %}
+                <div class="text-warning">{{ form.non_field_errors }}</div>
+                {% endif %}
                 <button type="submit" class="btn btn auth_button form_template_button_auth">Войти</button>
-
-
-
             </form>
-        <a href="{% url 'sign_in' %}" class="text-decoration-none"> Нету аккаунта? <span class="text-decoration-underline">  Зарегистрироваться! </span> </a>
+            <a href="{% url 'sing_up' %}" class="text-decoration-none"> Нету аккаунта? <span
+                    class="text-decoration-underline">  Зарегистрироваться! </span> </a>
 
 
         </div>
