@@ -2,3 +2,4 @@
 TodoTeam/db.sqlite3
 TodoTeam/task/migrations/__pycache__/0003_task_user.cpython-312.pyc
 /TodoTeam/task/__pycache__
+**/__pycache__
