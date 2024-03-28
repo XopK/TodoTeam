@@ -19,4 +19,5 @@ def registration(request):
 
 
 def entrance(request):
-    return render(request, 'user/entrance.html')
+    form = RegistrationForm()
+    return render(request, 'user/entrance.html', {'form':form})

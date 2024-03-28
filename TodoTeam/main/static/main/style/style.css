@@ -15,7 +15,6 @@ body {
 }
 /* Подвал */
 header {
-    background-color: #614EA7;
     font-family: "Dela Gothic One", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -141,6 +140,48 @@ color: #F28378;
 .social_media {
     margin-top: 20px;
 }
+/*Формы*/
+.form_template {
+    background-color: #614EA7;
+    width: 40%;
+    border-radius: 30px;
+    padding: 90px 0px;
+}
+.form_template h1 {
+    font-size: 32px;
+}
+.form_template form {
+    width: 70%;
+}
+.form_template form div  {
+    margin: 0 auto;
+}
+.form_template form div input {
+    border-radius: 0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 100;
+    color: #F28378;
+}
+.form_template form div input:focus {
+      color: #F28378;
+
+}
+.form_template_button {
+    text-align: center;
+      margin-left: 80px;
+}
+.form_template_button_auth {
+     margin-left: 120px;
+}
+.form_template a {
+    color: #FFFFFF;
+}
+.form_template a span {
+    color: #F28378;
+}
+
+
 @media (max-width: 740px) {
     .main {
         display: flex;
@@ -191,6 +232,51 @@ color: #F28378;
   }
   .section_two_block div img {
     margin-top: 20px;
+}
+  .Registaration img {
+    display: none;
+  }
+  .form_template {
+      width: 100%;
+      padding: 40px 0px;
+  }
+  .form_template h1 {
+    font-size: 24px;
+}
+.form_template form {
+    width: 90%;
+        font-size: 12px;
+}
+.form_template form div  {
+    margin: 0 auto;
+
+}
+.form_template form div input {
+    border-radius: 0;
+    width: 100%;
+    font-size: 14px;
+    height: 25px;
+    font-weight: 100;
+    color: #F28378;
+}
+.form_template form div input:focus {
+      color: #F28378;
+
+}
+.form_template_button {
+    text-align: center;
+      margin-left: 60px;
+    padding: 5px 10px;
+}
+.form_template_button_auth {
+    margin-left: 80px;
+}
+.form_template a {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+.form_template a span {
+    color: #F28378;
 }
 
 }

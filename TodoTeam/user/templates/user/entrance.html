@@ -1,30 +1,36 @@
 {% extends 'main/layout.html' %}
-
+{% load static %}
 {% block title %}
-Добавить статью
+Вход
 {% endblock %}
 
 {% block content %}
 <section class="container">
-    <div class="d-flex">
-        <div class="d-flex">
-            <h1>Войти</h1>
-            <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Логин</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Пароль</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <button type="submit" class="btn btn-primary">Войти</button>
-</form>
-          <a href="{% url 'registration' %}">  Ещё нет аккаунта? Зарегистрироваться </a>
+    <div class="d-flex justify-content-evenly m-3 Registaration">
+        <div class="form_template d-flex flex-column align-items-center text-white gap-3">
+            <h1>Вход</h1>
+            <form method="post" >
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Логин</label>
+                    {{form.username}}
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                    {{ form.password1 }}
+                </div>
+
+                <button type="submit" class="btn btn auth_button form_template_button_auth">Войти</button>
+
+
+
+            </form>
+        <a href="{% url 'sign_in' %}" class="text-decoration-none"> Нету аккаунта? <span class="text-decoration-underline">  Зарегистрироваться! </span> </a>
 
 
         </div>
-        <img>
+        <img src="{% static 'main/image/people_sign_in.svg'%}" alt="Картинка">
     </div>
 </section>
 {% endblock %}

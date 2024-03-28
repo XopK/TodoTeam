@@ -1,15 +1,15 @@
 {% extends 'main/layout.html' %}
-
+{% load static %}
 {% block title %}
 Вход
 {% endblock %}
 
 {% block content %}
 <section class="container">
-    <div class="d-flex">
-        <div class="d-flex">
+    <div class="d-flex justify-content-evenly m-3 Registaration">
+        <div class="form_template d-flex flex-column align-items-center text-white gap-3">
             <h1>Регистрация</h1>
-            <form method="post">
+            <form method="post" >
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Имя</label>
@@ -36,13 +36,16 @@
                     {{ form.password2 }}
                 </div>
 
-                <button type="submit" class="btn btn-primary">Создать аккаунт</button>
+                <button type="submit" class="btn btn auth_button form_template_button">Создать аккаунт</button>
+
+
+
             </form>
-            <a href="{% url 'entrance' %}"> Есть аккаунт? Войдите! </a>
+        <a href="{% url 'sign_in' %}" class="text-decoration-none"> Есть аккаунт? <span class="text-decoration-underline"> Войдите! </span> </a>
 
 
         </div>
-        <img src="" alt="Картинка">
+        <img src="{% static 'main/image/people_sign_in.svg'%}" alt="Картинка">
     </div>
 </section>
 {% endblock %}
