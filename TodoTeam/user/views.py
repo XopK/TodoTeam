@@ -32,3 +32,6 @@ def entrance(request):
     else:
         form = LoginForm()
     return render(request, 'user/entrance.html', {'form': form})
+
+def personalArea(request):
+    return render(request, 'user/personalArea.html')

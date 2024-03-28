@@ -180,7 +180,7 @@ color: #F28378;
 .form_template a span {
     color: #F28378;
 }
-
+/*Шапка для авторизированного пользователя*/
 
 @media (max-width: 740px) {
     .main {
