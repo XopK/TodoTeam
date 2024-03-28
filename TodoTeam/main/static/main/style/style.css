@@ -181,7 +181,37 @@ color: #F28378;
     color: #F28378;
 }
 /*Шапка для авторизированного пользователя*/
-
+.container_user {
+    margin: 0px 30px;
+}
+.btn_settings {
+    background-color: #F28378;
+    color: #FFFFFF;
+    border: 30px;
+}
+.btn_settings:hover,
+.btn_settings:focus{
+     background-color: #F28378;
+    color: #FFFFFF;
+    border: 30px;
+}
+.btn_settings:active {
+    background-color: #F28378;
+    color: #FFFFFF;
+}
+.dropdown-menu {
+    background-color: #F28378;
+    color: #FFFFFF;
+}
+.dropdown-item {
+    color: #FFFFFF;
+}
+.dropdown-item:active,
+.dropdown-item:hover
+{
+    background-color: #E88075;
+    color: #FFFFFF;
+}
 @media (max-width: 740px) {
     .main {
         display: flex;
