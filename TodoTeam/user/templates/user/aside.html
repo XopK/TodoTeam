@@ -20,10 +20,29 @@
             crossorigin="anonymous"></script>
     <title></title>
 </head>
+<script>
+document.getElementById('button1').addEventListener('click', function() {
+  if (!this.disabled) {
+    document.getElementById('button1').classList.add('active');
+    document.getElementById('button2').classList.remove('active');
+    document.getElementById('button2').disabled = true;
+    document.getElementById('button1').disabled = false;
+  }
+});
+
+document.getElementById('button2').addEventListener('click', function() {
+  if (!this.disabled) {
+    document.getElementById('button2').classList.add('active');
+    document.getElementById('button1').classList.remove('active');
+    document.getElementById('button1').disabled = true;
+    document.getElementById('button2').disabled = false;
+  }
+});
+</script>
 <body>
 
-    <div style="background-color: #614EA7;">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom container_user" >
+    <div style="background-color: #614EA7; " >
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 container_user" >
             <div class="col-md-3 mb-2 mb-md-0">
                 <a href="{% url 'index' %}" class="logo_block text-white text-decoration-none">
                     <img src="{% static 'main/image/logo.svg' %}" alt="лого">
@@ -34,13 +53,13 @@
 
             <div class="col-md-3 text-end">
                 <div class="dropdown">
-                    <button class="btn btn_settings " type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn_settings btn_settings_header " type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                        Настройки
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Изменить данные</a></li>
-                        <li><a class="dropdown-item" href="#">Выйти</a></li>
+                    <ul class="dropdown-menu dropdown-menu_header">
+                        <li><a class="dropdown-item dropdown-item_header" href="#">Изменить данные</a></li>
+                        <li><a class="dropdown-item dropdown-item_header" href="#">Выйти</a></li>
                     </ul>
                 </div>
             </div>
@@ -49,9 +68,9 @@
 {% block content %}
 
 {% endblock %}
-<div style="background-color: #614EA7;">
+<div style="background-color: #614EA7; " >
     <div class="container">
-        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  border-top">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 ">
             <div class="col mb-3">
                 <a href="{% url 'index' %}" class="logo_block text-white text-decoration-none">
                     <img src="{% static 'main/image/logo.svg' %}" alt="лого">

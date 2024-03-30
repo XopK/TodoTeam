@@ -5,25 +5,73 @@
 {% endblock %}
 
 {% block content %}
-<div>
-    <div>
-        <form>
-            <input placeholder="поиск">
-        </form>
+
+<div class="d-flex">
+
+
+    <div class="aside d-flex" >
+
+        <aside class="container_user d-flex flex-column gap-3">
+            <div>
+                <form class="search">
+                    <input type="text" class="search-field" placeholder="Поиск">
+                    <img src="{% static 'main/image/mingcute_search.svg' %}" alt="" class="search-icon">
+                </form>
+            </div>
+            <hr>
+            <div class="d-flex">
+                <img src="{% static 'main/image/Vector_1.svg'%}">
+                <a href="" class="text-decoration-none text-white p-2 ">Входящие</a>
+            </div>
+            <hr>
+            <div>
+                <ul class="ul_tasks d-flex flex-column gap-2">
+                    <li class="d-flex"><img src="{% static 'main/image/Vector.svg'%}"><a href="" class="text-decoration-none">Сегодня</a>
+                    </li>
+                    <li class="d-flex"><img src="{% static 'main/image/material-symbols_star.svg'%}" style="width: 20px"><a
+                            href="" class="text-decoration-none">Завтра</a></li>
+                    <li class="d-flex"><img src="{% static 'main/image/mdi_calendar.svg'%}"><a href="" class="text-decoration-none">На всю неделю</a></li>
+                    <li class="d-flex"><img src="{% static 'main/image/twemoji_infinity.svg'%}"><a href="" class="text-decoration-none">Все</a>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <div class="dropdown dropdown_work">
+                <button class="btn btn-secondary dropdown-toggle dropdown_work" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    Задача
+                </button>
+                <ul class="dropdown-menu dropdown-menu-work">
+                    <li><a class="dropdown-item" href="#">Задача 1</a></li>
+                    <li><a class="dropdown-item" href="#">Задача 2</a></li>
+                </ul>
+            </div>
+        </aside>
     </div>
-    <div>
-        <a>Входящие</a>
+
+    <div class="container_content">
+        <div class="d-flex flex-column ">
+            <div class="d-flex align-items-center gap-2 "><img src="{% static 'main/image/Vector_Star.svg'%}" alt="значок">
+                <p class="Title_work">Сегодня</p></div>
+            <div class="d-flex die"><p>Ваши задачи</p></div>
+            <div class="d-flex gap-3 justify-content-between mt-3 ">
+                <div class="d-flex gap-2">
+                    <button id="button1" class="active button_1"><img
+                            src="{% static 'main/image/flat-color-icons_checkmark.svg'%}" alt=""></button>
+                    <button id="button2" class="button_1"><img src="{% static 'main/image/maki_cross.svg'%}" alt="">
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p style="font-size: 25px; margin-bottom: 0rem;">Отправить отчёт </p>
+                        <p style="font-size: 12px;">08:30</p>
+                    </div>
+                </div>
+                <button style="border: none; background-color: #FFFFFF;"><img src="{% static 'main/image/love.svg'%}"
+                                                                              alt=""></button>
+            </div>
+        </div>
     </div>
-    <div>
-        <ul>
-            <li><a>Сегодня</a></li>
-             <li><a>Завтра</a></li>
-             <li><a>На всю неделю</a></li>
-             <li><a>Все</a></li>
-        </ul>
-    </div>
-    <div>
-        
-    </div>
+
 </div>
+
+
 {% endblock %}
