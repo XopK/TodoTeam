@@ -1,0 +1,54 @@
+{% extends 'user/aside.html' %}
+{% load static %}
+{% block title %}
+Добавление задач
+{% endblock %}
+
+{% block content %}
+<section class="container_content">
+    <div class="d-flex justify-content-evenly m-3 Registaration">
+        <div class="form_template d-flex flex-column align-items-center text-white gap-3">
+            <h1>Добавить Задачу</h1>
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Название</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div class="text-warning"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Содержание</label>
+                    <textarea style="color: #F28378;" ID="editor" class="form-control textarea_form" ></textarea>
+                    <div class="text-warning"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Дата задачи</label>
+                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div class="text-warning"></div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div >
+                        <label for="" class="form-label">Начало задачи</label>
+                    <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div class="text-warning"></div>
+                    </div>
+                      <div>
+                        <label for="" class="form-label">Конец задачи</label>
+                    <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div class="text-warning"></div>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn auth_button form_template_button">Добавить</button>
+
+
+            </form>
+
+
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock %}

@@ -38,3 +38,7 @@ def entrance(request):
 
 def personalArea(request):
     return render(request, 'user/personalArea.html')
+
+def addtask(request):
+    form = RegistrationForm()
+    return render(request, 'user/addtask.html',{'form': form})

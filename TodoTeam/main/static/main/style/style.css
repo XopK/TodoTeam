@@ -189,34 +189,51 @@ color: #F28378;
 .container_user {
     margin: 0px 30px;
 }
-.btn_settings_header {
-    background-color: #F28378;
-    color: #FFFFFF;
-    border: 30px;
+.dropbtn {
+  background-color: #F28378;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+        border-radius: 20px;
+
 }
-.btn_settings_header:hover,
-.btn_settings_header:focus{
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #F28378;
+}
+
+.dropdown {
+      background-color: #F28378;
+  position: relative;
+  display: inline-block;
+        border-radius: 20px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+   background-color: #F28378;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        border-radius: 20px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+    color: #FFFFFF;
      background-color: #F28378;
-    color: #FFFFFF;
-    border: 30px;
 }
-.btn_settings_header:active {
-    background-color: #F28378;
-    color: #FFFFFF;
-}
-.dropdown-menu_header {
-    background-color: #F28378;
-    color: #FFFFFF;
-}
-.dropdown-item_header {
-    color: #FFFFFF;
-}
-.dropdown-item_header:active,
-.dropdown-item_header:hover
-{
-    background-color: #E88075;
-    color: #FFFFFF;
-}
+
+
+
+.show {display: block;}
+
 /* Боковая панель */
 .aside {
     width: 20%;
@@ -286,9 +303,7 @@ color: #F28378;
 .btn:hover {
     background-color: #614EA7;
 }
-.show {
-    background-color: #614EA7;
-}
+
 .dropdown-menu-work {
     width: 100%;
     background-color: #614EA7;
@@ -406,9 +421,14 @@ color: #F28378;
     font-weight: 100;
     color: #F28378;
 }
+.textarea_form {
+        font-size: 14px;
+       color: #F28378;
+}
+
 .form_template form div input:focus {
       color: #F28378;
-
+       font-size: 14px;
 }
 .form_template_button {
     text-align: center;
