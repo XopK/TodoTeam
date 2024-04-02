@@ -6,4 +6,6 @@ urlpatterns = [
     path('sign_in', views.entrance, name='sign_in'),
     path('personalArea', views.personalArea, name='personal_area'),
     path('addtask', views.addtask, name='add_task'),
-    ]
+    path('logout', views.logout_view, name='logout'),
+    path('status/<int:pk>', views.change_status, name='status')
+]

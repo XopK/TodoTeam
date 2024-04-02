@@ -14,29 +14,39 @@
 
                 <div class="mb-3">
                     <label for="" class="form-label">Название</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div class="text-warning"></div>
+                    {{ form.title_task }}
+                    {% for error in form.title_task.errors %}
+                    <div class="text-warning">{{ error }}</div>
+                    {% endfor %}
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Содержание</label>
-                    <textarea style="color: #F28378;" ID="editor" class="form-control textarea_form" ></textarea>
-                    <div class="text-warning"></div>
+                    {{ form.description_task }}
+                    {% for error in form.description_task.errors %}
+                    <div class="text-warning">{{ error }}</div>
+                    {% endfor %}
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Дата задачи</label>
-                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div class="text-warning"></div>
+                    {{ form.date_task }}
+                    {% for error in form.date_task.errors %}
+                    <div class="text-warning">{{ error }}</div>
+                    {% endfor %}
                 </div>
                 <div class="d-flex mb-3">
-                    <div >
+                    <div>
                         <label for="" class="form-label">Начало задачи</label>
-                    <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div class="text-warning"></div>
+                        {{ form.task_time_start }}
+                        {% for error in form.task_time_start.errors %}
+                        <div class="text-warning">{{ error }}</div>
+                        {% endfor %}
                     </div>
-                      <div>
+                    <div>
                         <label for="" class="form-label">Конец задачи</label>
-                    <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div class="text-warning"></div>
+                        {{ form.task_time_end }}
+                        {% for error in form.task_time_end.errors %}
+                        <div class="text-warning">{{ error }}</div>
+                        {% endfor %}
                     </div>
                 </div>
 

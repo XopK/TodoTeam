@@ -3,48 +3,57 @@
     margin: 0;
     padding: 0;
 }
+
 hr {
     margin: 0;
-    opacity: 100 ;
-    border-top:#FFFFFF solid;
+    opacity: 100;
+    border-top: #FFFFFF solid;
 }
+
 .dela-gothic one-regular {
-  font-family: "Dela Gothic One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Dela Gothic One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
+
 body {
     font-family: "Dela Gothic One", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
+
 /* Подвал */
 header {
     font-family: "Dela Gothic One", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
+
 .logo_block {
     display: flex;
     align-items: center;
 }
+
 .logo-text {
     padding-top: 15px;
-     font-family: "Arvo", serif;
-     font-weight: 700;
-     font-style: normal;
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
 }
+
 .navigation li a {
-    font-size:13px;
+    font-size: 13px;
 }
+
 .auth_button {
     background-color: #F28378;
     color: #FFFFFF;
-    font-size:13px;
+    font-size: 13px;
     padding: 10px 32px;
     border-radius: 18px;
     box-shadow: 1px 5px 30px 1px rgba(0, 0, 0, 0.5);
 }
+
 .auth_button:hover {
     background-color: #FFFFFF;
     color: #F28378;
@@ -56,95 +65,117 @@ header {
 .main {
     margin: 120px 0px;
 }
+
 .main_one {
     width: 45%;
     height: 45%;
 }
+
 .main_one h1 {
     color: #150D4D;
     font-size: 40px;
-    line-height:50px;
+    line-height: 50px;
 
 }
+
 .main_one p {
-    color:  #776DE1;
+    color: #776DE1;
     font-size: 18px;
     line-height: 35px;
     text-align: justify;
 }
+
 .main_one_a {
     color: #FFFFFF;
     background-color: #F28378;
     padding: 18px 35px;
     border-radius: 35px;
 }
+
 .main_one_a:hover {
     background-color: #FFFFFF;
     color: #F28378;
     border: 1px solid #F28378;
 }
+
 .main_two {
     width: 45%;
-   height: 400px;
+    height: 400px;
 }
+
 .main_img {
     display: none;
 }
+
 /*Вторая секция*/
 .title_sectionTwo {
     text-align: center;
     color: #241C57;
 }
+
 .p_sectionTwo {
     width: 75%;
     font-size: 20px;
     margin: 0px auto;
 }
+
 .section_two_block {
     color: #150D4D;
 }
+
 .section_two_block div p {
-    font-size: 24px ;
-     width: 65%;
+    font-size: 24px;
+    width: 65%;
     text-align: center;
 }
+
 .section_two_block div img {
     margin-top: 80px;
 }
+
 /*Секция третья*/
 .section_three {
-    margin:150px 0px;
+    margin: 150px 0px;
 }
+
 .questions {
     color: #150D4D;
     font-size: 55px;
 }
+
 .section_three div {
     margin: 20px 0px;
 }
+
 .button_style {
     background-color: #614EA7;
     color: #FFFFFF;
 }
+
 .button_style:focus {
     background-color: #F28378;
     color: #150D4D;
 }
+
 .button_style:not(.collapsed) {
     color: var(--bs-accordion-active-color);
     background-color: var(--bs-accordion-active-bg);
-    box-shadow: inset 0 calc(-1* var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+    box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
 }
+
 .title_email {
-color: #F28378;
+    color: #F28378;
 }
+
 .text-email {
     font-size: 13px;
-        margin-bottom: 0rem;
+    margin-bottom: 0rem;
 }
+
 .social_media {
     margin-top: 20px;
 }
+
 /*Формы*/
 .form_template {
     background-color: #614EA7;
@@ -152,15 +183,19 @@ color: #F28378;
     border-radius: 30px;
     padding: 90px 0px;
 }
+
 .form_template h1 {
     font-size: 32px;
 }
+
 .form_template form {
     width: 70%;
 }
-.form_template form div  {
+
+.form_template form div {
     margin: 0 auto;
 }
+
 .form_template form div input {
     border-radius: 0;
     width: 100%;
@@ -168,138 +203,155 @@ color: #F28378;
     font-weight: 100;
     color: #F28378;
 }
+
 .form_template form div input:focus {
-      color: #F28378;
+    color: #F28378;
 
 }
+
 .form_template_button {
     text-align: center;
-      margin-left: 80px;
+    margin-left: 80px;
 }
+
 .form_template_button_auth {
-     margin-left: 120px;
+    margin-left: 120px;
 }
+
 .form_template a {
     color: #FFFFFF;
 }
+
 .form_template a span {
     color: #F28378;
 }
+
 /*Шапка для авторизированного пользователя*/
 .container_user {
     margin: 0px 30px;
 }
+
 .dropbtn {
-  background-color: #F28378;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-        border-radius: 20px;
+    background-color: #F28378;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
 
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #F28378;
+    background-color: #F28378;
 }
 
 .dropdown {
-      background-color: #F28378;
-  position: relative;
-  display: inline-block;
-        border-radius: 20px;
+    background-color: #F28378;
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-   background-color: #F28378;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        border-radius: 20px;
-  z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #F28378;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    z-index: 1;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
     color: #FFFFFF;
-     background-color: #F28378;
+    background-color: #F28378;
 }
 
 
-
-.show {display: block;}
+.show {
+    display: block;
+}
 
 /* Боковая панель */
 .aside {
     width: 20%;
-    max-height: 1200px ;
+    max-height: 1200px;
     height: 700px;
     background-color: #614EA7;
 }
+
 .search {
-  display: inline-flex;
-  border: 1px solid #FFFFFF;
-  border-radius: 30px;
+    display: inline-flex;
+    border: 1px solid #FFFFFF;
+    border-radius: 30px;
     background-color: #614EA7;
-  padding: 5px;
+    padding: 5px;
 }
 
 .search-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  order: -1;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    order: -1;
 }
 
 .search-field {
-  width: 210px;
-    font-size:16px ;
+    width: 210px;
+    font-size: 16px;
     background-color: #614EA7;
     color: #FFFFFF;
     height: 20px;
-  border: 0;
+    border: 0;
 }
+
 .search-field::placeholder {
     color: #FFFFFF;
     font-size: 16px;
 }
 
 .search-field:focus {
-  outline: none;
+    outline: none;
     color: #FFFFFF;
 }
+
 .ul_tasks {
-        list-style-type: none; /* Убираем маркеры */
+    list-style-type: none; /* Убираем маркеры */
     padding-left: 0; /* Сдвигаем список влево */
     color: #FFFFFF;
 }
+
 .ul_tasks li a {
     color: #FFFFFF;
     padding-left: 8px;
 }
+
 .dropdown_work {
-    width:  250px;
+    width: 250px;
     text-align: left;
     background-color: #614EA7;
     border: none;
 }
-.dropdown_work:active{
+
+.dropdown_work:active {
     background-color: #241C57;
     border: none;
 }
-.dropdown_work:focus{
+
+.dropdown_work:focus {
     background-color: #614EA7;
     border: none;
 }
+
 .dropdown_work:hover {
-      background-color: #614EA7;
+    background-color: #614EA7;
     border: none;
 }
+
 .btn:hover {
     background-color: #614EA7;
 }
@@ -310,140 +362,180 @@ color: #F28378;
     color: #FFFFFF;
     border: none;
 }
+
 .dropdown-menu-work a {
-      color: #FFFFFF;
+    color: #FFFFFF;
 }
+
 .container_content {
     margin: 0 auto;
     width: 70%;
 }
+
 .Title_work {
-    font-size: 60px;
-    padding-top: 14px;
+    margin: 0;
+    font-size: 50px;
     color: #241C57;
 }
+
 .die {
     background-color: #614EA7;
     border-radius: 10px;
     color: #FFFFFF;
     font-size: 24px;
-}
-.die p {
-    margin: 10px 20px ;
-}
-.button_1 {
-    background-color: #614EA7;
-  border-radius: 50%;
-    border: none;
-  width: 61px;
-    height: 61px;
-  cursor: pointer;
-}
-.button_1:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+    max-width: 1295px;
 }
 
-@media (max-width: 740px) {
+.die p {
+    margin: 10px 20px;
+}
+
+.button_1 {
+    background-color: #614EA7;
+    border-radius: 50%;
+    border: none;
+    width: 61px;
+    height: 61px;
+    padding: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 746px) {
     .main {
         display: flex;
         flex-direction: column;
         min-width: 100%;
         margin-top: 0;
     }
+
     .main_one {
         display: flex;
         width: 100%;
         align-items: center;
         gap: 0rem;
     }
-  .main_one h1 {
-    font-size: 1.5rem;
-      max-width: auto;
-      text-align: center;
+
+    .main_one h1 {
+        font-size: 1.5rem;
+        max-width: auto;
+        text-align: center;
         line-height: 25px;
-  }
-  .main_one p {
-      font-size: 1rem;
-      line-height: 20px;
-  }
-  .main_one_a {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-      margin: 0 auto;
-  }
-  .main_two {
-     display: none;
-  }
-  .main_img {
-      display: block;
-      width: 45%;
-      margin: 0 auto;
-  }
-  .p_sectionTwo {
-      font-size: 14px;
-      width: 100%;
-  }
-  .section_two_block {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-  }
-  .section_two_block div p {
-      font-size: 16px ;
-  }
-  .section_two_block div img {
-    margin-top: 20px;
-}
-  .Registaration img {
-    display: none;
-  }
-  .form_template {
-      width: 100%;
-      padding: 40px 0px;
-  }
-  .form_template h1 {
-    font-size: 24px;
-}
-.form_template form {
-    width: 90%;
-        font-size: 12px;
-}
-.form_template form div  {
-    margin: 0 auto;
+    }
 
-}
-.form_template form div input {
-    border-radius: 0;
-    width: 100%;
-    font-size: 14px;
-    height: 25px;
-    font-weight: 100;
-    color: #F28378;
-}
-.textarea_form {
+    .main_one p {
+        font-size: 1rem;
+        line-height: 20px;
+    }
+
+    .main_one_a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        margin: 0 auto;
+    }
+
+    .main_two {
+        display: none;
+    }
+
+    .main_img {
+        display: block;
+        width: 45%;
+        margin: 0 auto;
+    }
+
+    .p_sectionTwo {
         font-size: 14px;
-       color: #F28378;
-}
+        width: 100%;
+    }
 
-.form_template form div input:focus {
-      color: #F28378;
-       font-size: 14px;
-}
-.form_template_button {
-    text-align: center;
-      margin-left: 60px;
-    padding: 5px 10px;
-}
-.form_template_button_auth {
-    margin-left: 80px;
-}
-.form_template a {
-    color: #FFFFFF;
-    font-size: 12px;
-}
-.form_template a span {
-    color: #F28378;
-}
+    .section_two_block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
 
+    .section_two_block div p {
+        font-size: 16px;
+    }
+
+    .section_two_block div img {
+        margin-top: 20px;
+    }
+
+    .Registaration img {
+        display: none;
+    }
+
+    .form_template {
+        width: 100%;
+        padding: 40px 0px;
+    }
+
+    .form_template h1 {
+        font-size: 24px;
+    }
+
+    .form_template form {
+        width: 90%;
+        font-size: 12px;
+    }
+
+    .form_template form div {
+        margin: 0 auto;
+
+    }
+
+    .form_template form div input {
+        border-radius: 0;
+        width: 100%;
+        font-size: 14px;
+        height: 25px;
+        font-weight: 100;
+        color: #F28378;
+    }
+
+    .textarea_form {
+        font-size: 14px;
+        color: #F28378;
+    }
+
+    .form_template form div input:focus {
+        color: #F28378;
+        font-size: 14px;
+    }
+
+    .form_template_button {
+        text-align: center;
+        margin-left: 60px;
+        padding: 5px 10px;
+    }
+
+    .form_template_button_auth {
+        margin-left: 80px;
+    }
+
+    .form_template a {
+        color: #FFFFFF;
+        font-size: 12px;
+    }
+
+    .form_template a span {
+        color: #F28378;
+    }
+
+    .Title_work {
+        font-size: 40px;
+    }
+    .die {
+        font-size: 18px;
+        min-width: 280px;
+    }
+
+}
+.list{
+    max-width: 1280px
 }

@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import settings
+from django.dispatch import receiver
+
 
 class Command(models.Model):
     name_command = models.CharField(max_length=255)
@@ -12,9 +14,11 @@ class Command(models.Model):
         verbose_name_plural = "Команды"
         verbose_name = "Команда"
 
+
 class CommandUser(models.Model):
     command = models.ForeignKey('Command', on_delete=models.CASCADE, blank=True, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
+    is_leader = models.BooleanField(default=False)
 
     def __str__(self):
         command_name = self.command.name_command if self.command else 'Нет команды'
@@ -24,6 +28,12 @@ class CommandUser(models.Model):
     class Meta:
         verbose_name_plural = "Список команд"
         verbose_name = "Список"
+
+
+@receiver(models.signals.post_save, sender=Command)
+def create_command_user(sender, instance, created, **kwargs):
+    if created:
+        CommandUser.objects.create(command=instance, user=instance.user, is_leader=True)
 
 class favorite(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)

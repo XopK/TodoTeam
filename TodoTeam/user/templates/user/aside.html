@@ -20,75 +20,34 @@
             crossorigin="anonymous"></script>
     <title></title>
 </head>
-<script>
-    document.getElementById('button1').addEventListener('click', function () {
-        if (!this.disabled) {
-            document.getElementById('button1').classList.add('active');
-            document.getElementById('button2').classList.remove('active');
-            document.getElementById('button2').disabled = true;
-            document.getElementById('button1').disabled = false;
-        }
-    });
-
-    document.getElementById('button2').addEventListener('click', function () {
-        if (!this.disabled) {
-            document.getElementById('button2').classList.add('active');
-            document.getElementById('button1').classList.remove('active');
-            document.getElementById('button1').disabled = true;
-            document.getElementById('button2').disabled = false;
-        }
-    });
-
-        /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
-        function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-    }
-    }
-    }
-    }
-
-</script>
-
 
 <body>
 
-<div style="background-color: #614EA7; ">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 container_user">
-        <div class="col-md-3 mb-2 mb-md-0">
-            <a href="{% url 'index' %}" class="logo_block text-white text-decoration-none">
-                <img src="{% static 'main/image/logo.svg' %}" alt="лого">
-                <p class="logo-text fs-3">TodoTeam</p>
-            </a>
-        </div>
-
-
-        <div class="col-md-3 text-end">
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Настройки</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a class="text-center" href="#">Изменить данные</a>
-                    <a class="text-center"  href="#">Выход</a>
-                </div>
+<div style="background-color: #614EA7;">
+    <div class="container-fluid">
+        <header class="d-flex flex-wrap flex-md-row align-items-center justify-content-center justify-content-md-between py-1">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a href="{% url 'personal_area' %}" class="logo_block text-white text-decoration-none">
+                    <img src="{% static 'main/image/logo.svg' %}" alt="лого">
+                    <p class="logo-text fs-3" style="margin: 0; padding: 10px">TodoTeam</p>
+                </a>
             </div>
-    </header>
+            <div class="col-auto text-end ms-auto my-2 mt-md-0">
+                <button class="btn auth_button" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    Меню
+                </button>
+            </div>
+        </header>
+    </div>
 </div>
-<div class="d-flex">
-
-
-    <div class="aside d-flex">
-
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"
+     style="background-color: #614EA7;">
+    <div class="offcanvas-header px-5">
+        <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Здраствуй, {{ user.get_username }}</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
         <aside class="container_user d-flex flex-column gap-3">
             <div>
                 <form class="search">
@@ -97,106 +56,41 @@
                 </form>
             </div>
             <hr>
-            <div class="d-flex">
-                <img src="{% static 'main/image/Vector_1.svg'%}">
-                <a href="" class="text-decoration-none text-white p-2 ">Входящие</a>
-            </div>
-            <hr>
             <div>
                 <ul class="ul_tasks d-flex flex-column gap-2">
-                    <li class="d-flex"><img src="{% static 'main/image/Vector.svg'%}"><a href=""
-                                                                                         class="text-decoration-none">Сегодня</a>
+                    <li class="d-flex">
+                        <img src="{% static 'main/image/Vector.svg'%}">
+                        <a href="" class="text-decoration-none">Сегодня</a>
                     </li>
-                    <li class="d-flex"><img src="{% static 'main/image/material-symbols_star.svg'%}"
-                                            style="width: 20px"><a
-                            href="" class="text-decoration-none">Завтра</a></li>
-                    <li class="d-flex"><img src="{% static 'main/image/mdi_calendar.svg'%}"><a href=""
-                                                                                               class="text-decoration-none">На
-                        всю неделю</a></li>
-                    <li class="d-flex"><img src="{% static 'main/image/twemoji_infinity.svg'%}"><a href=""
-                                                                                                   class="text-decoration-none">Все</a>
+                    <li class="d-flex">
+                        <img src="{% static 'main/image/material-symbols_star.svg'%}" style="width: 20px">
+                        <a href="" class="text-decoration-none">Завтра</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="{% static 'main/image/mdi_calendar.svg'%}">
+                        <a href="" class="text-decoration-none">На всю неделю</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="{% static 'main/image/twemoji_infinity.svg'%}">
+                        <a href="" class="text-decoration-none">Все</a>
                     </li>
                 </ul>
             </div>
             <hr>
-            <div class="dropdown dropdown_work">
-                <button class="btn btn-secondary dropdown-toggle dropdown_work" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    Задача
-                </button>
-                <ul class="dropdown-menu dropdown-menu-work">
-                    <li><a class="dropdown-item" href="#">Задача 1</a></li>
-                    <li><a class="dropdown-item" href="#">Задача 2</a></li>
-                </ul>
-            </div>
+            <ul class="ul_tasks d-flex flex-column gap-2">
+                <li class="d-flex">
+                    <a href="" class="text-decoration-none">Настройки</a>
+                </li>
+                <li class="d-flex">
+                    <a href="{% url 'logout' %}" class="text-decoration-none">Выход</a>
+                </li>
+            </ul>
+            <hr>
         </aside>
     </div>
-    {% block content %}
+</div>
+{% block content %}
 
-    {% endblock %}
-    <div style="background-color: #614EA7; ">
-        <div class="container">
-            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 ">
-                <div class="col mb-3">
-                    <a href="{% url 'index' %}" class="logo_block text-white text-decoration-none">
-                        <img src="{% static 'main/image/logo.svg' %}" alt="лого">
-                        <p class="logo-text fs-3">TodoTeam</p>
-                    </a>
-                    <p class=" title_email text-email">Свяжитесь с нами</p>
-                    <p class="text-white text-email ">Телефон: <span
-                            class="text-decoration-underline">+78005553535</span>
-                    </p>
-                    <p class="text-white text-email">Почта: <span
-                            class="text-decoration-underline">TodoTeam@gmail.com</span></p>
-
-                    <div class="social_media">
-                        <p class="text-center text-white"> Социальные сети</p>
-                        <div class="d-flex justify-content-around    ">
-                            <img src="{% static 'main/image/instagram.svg' %}" alt="Инстаграм">
-                            <img src="{% static 'main/image/youtube_2111795.svg' %}" alt="Ютуб">
-                            <img src="{% static 'main/image/vk_4926544.svg' %}" alt="Вк">
-                            <img src="{% static 'main/image/telegram_739260.svg' %}" alt="Телеграмм">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col mb-3">
-
-                </div>
-
-                <div class="col mb-3">
-                    <h5 class=" title_email">Первый</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Главная</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Личный кабинет</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Авторизация</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Регистрация</a></li>
-                    </ul>
-                </div>
-
-                <div class="col mb-3">
-                    <h5 class=" title_email">Второй</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Главная</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Личный кабинет</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Авторизация</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Регистрация</a></li>
-                    </ul>
-                </div>
-
-                <div class="col mb-3">
-                    <h5 class=" title_email">Третий</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Главная</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Личный кабинет</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Авторизация</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Регистрация</a></li>
-                    </ul>
-                </div>
-            </footer>
-        </div>
-    </div>
-
+{% endblock %}
 </body>
 </html>

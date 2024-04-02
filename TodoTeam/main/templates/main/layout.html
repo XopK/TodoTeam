@@ -23,14 +23,13 @@
 <body>
 <div style="background-color: #614EA7;">
     <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
             <div class="col-md-3 mb-2 mb-md-0">
                 <a href="{% url 'index' %}" class="logo_block text-white text-decoration-none">
                     <img src="{% static 'main/image/logo.svg' %}" alt="лого">
                     <p class="logo-text fs-3">TodoTeam</p>
                 </a>
             </div>
-
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 navigation ">
                 <li><a href="/" class="nav-link px-4 text-white ">Главная</a></li>
                 <li><a href="/#whyus" class="nav-link px-4 text-white ">Почему мы?</a></li>
@@ -40,7 +39,7 @@
             {% if user.is_superuser %}
             <a href="{% url 'admin:index' %}" class="btn auth_button">Админка</a>
             {% else %}
-            <a href="#" class="btn auth_button">Личный кабинет</a>
+            <a href="{% url 'personal_area' %}" class="btn auth_button">Личный кабинет</a>
             {% endif %}
             {% else %}
             <div class="col-md-3 text-end">

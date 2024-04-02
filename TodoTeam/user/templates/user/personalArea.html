@@ -7,30 +7,59 @@
 {% block content %}
 
 
-
-    <div class="container_content">
-        <div class="d-flex flex-column ">
-            <div class="d-flex align-items-center gap-2 "><img src="{% static 'main/image/Vector_Star.svg'%}" alt="значок">
-                <p class="Title_work">Сегодня</p></div>
-            <div class="d-flex die"><p>Ваши задачи</p></div>
-            <div class="d-flex gap-3 justify-content-between mt-3 ">
-                <div class="d-flex gap-2">
-                    <button id="button1" class="active button_1"><img
-                            src="{% static 'main/image/flat-color-icons_checkmark.svg'%}" alt=""></button>
-                    <button id="button2" class="button_1"><img src="{% static 'main/image/maki_cross.svg'%}" alt="">
-                    </button>
+<div class="container">
+    <div class="d-flex flex-column ">
+        <div class="d-flex align-items-center my-3">
+            <img src="{% static 'main/image/Vector_Star.svg'%}" width="50px" height="50px" alt="значок">
+            <p class="Title_work">{{ current_date|date:"d F Y" }}</p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center die">
+            <p>Ваши задачи</p>
+            {% if user_is_leader %}
+            <a href="{% url 'add_task' %}" class="text-white" style="text-decoration: none">
+                Добавить
+                <img src="{% static 'main/image/ei_plus.svg'%}" alt="Добавить">
+            </a>
+            {% endif %}
+        </div>
+        {% for task in tasks %}
+        <div class="list mb-3 row my-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    {% if task.status_id == 1 %}
+                    <a href="{% url 'status' task.id %}" class="button_1">
+                        <img src="{% static 'main/image/wait.svg'%}" alt="mark_sign">
+                    </a>
+                    {% elif task.status_id == 2 %}
+                    <a href="{% url 'status' task.id %}" class="button_1">
+                        <img src="{% static 'main/image/Subtract.svg'%}" alt="mark_sign">
+                    </a>
+                    {% elif task.status_id == 3 %}
+                    <a href="{% url 'status' task.id %}" class="button_1">
+                        <img src="{% static 'main/image/flat-color-icons_checkmark.svg'%}" alt="mark_sign">
+                    </a>
+                    {% else %}
+                    <a href="{% url 'status' task.id %}" class="button_1">
+                        <img src="{% static 'main/image/maki_cross.svg'%}" alt="mark_sign">
+                    </a>
+                    {% endif %}
                     <div class="d-flex flex-column">
-                        <p style="font-size: 25px; margin-bottom: 0rem;">Отправить отчёт </p>
-                        <p style="font-size: 12px;">08:30</p>
+                        <p style="font-size: 25px; margin-bottom: 0px;">{{ task.title_task }}</p>
+                        <p class="fw-light">{{ task.description_task }}</p>
+                        <p class="m-0" style="font-size: 12px;">{{ task.task_time_start }} - {{ task.task_time_end }}</p>
                     </div>
                 </div>
-                <button style="border: none; background-color: #FFFFFF;"><img src="{% static 'main/image/love.svg'%}"
-                                                                              alt=""></button>
+                <button style="border: none; background-color: #FFFFFF;">
+                    <img src="{% static 'main/image/love.svg'%}" alt="">
+                </button>
             </div>
         </div>
+        {% empty %}
+        <div class="list mb-3 row my-3">
+            <h3>Задач на сегодня нет</h3>
+        </div>
+        {% endfor %}
     </div>
-
 </div>
-
 
 {% endblock %}
