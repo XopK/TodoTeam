@@ -49,9 +49,25 @@
                         <p class="m-0" style="font-size: 12px;">{{ task.task_time_start }} - {{ task.task_time_end }}</p>
                     </div>
                 </div>
-                <button style="border: none; background-color: #FFFFFF;">
-                    <img src="{% static 'main/image/love.svg'%}" alt="">
-                </button>
+                <div class="d-flex align-items-center gap-3">
+                    {% if user_is_leader %}
+                    <a href="{% url 'deleteTask' task.id %}">
+                        <img src="{% static 'main/image/maki_cross.svg'%}" alt="close">
+                    </a>
+                    <a href="{% url 'updateTask' task.id %}">
+                        <img src="{% static 'main/image/Subtract.svg'%}" alt="close">
+                    </a>
+                    {% endif %}
+                    {% if is_favorites %}
+                    <a href="{% url 'favorite' task.id %}">
+                        <img src="{% static 'main/image/heart.svg'%}" alt="favorite">
+                    </a>
+                    {% else %}
+                    <a href="{% url 'favorite' task.id %}">
+                        <img src="{% static 'main/image/love.svg'%}" alt="favorite">
+                    </a>
+                    {% endif %}
+                </div>
             </div>
         </div>
         {% empty %}

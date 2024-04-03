@@ -2,9 +2,12 @@ import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, LoginForm, addTaskForm
+from django.views.generic import UpdateView, DeleteView
+
+from .forms import RegistrationForm, LoginForm, addTaskForm, editTaskForm
 from django.contrib.auth import logout
 from .models import Command, CommandUser
+from .models import favorite as FavoriteModel
 from task.models import Task
 from django.contrib.auth.decorators import login_required
 
@@ -50,13 +53,16 @@ def personalArea(request):
             command = command_user.command
             tasks = Task.objects.filter(command=command)
             user_is_leader = command_user.is_leader
+            is_favorites = FavoriteModel.objects.filter(user_id=user_id,
+                                                        task_id__in=[task.id for task in tasks]).exists()
         else:
             tasks = []
             user_is_leader = False
+            is_favorites = False
 
         current_date = datetime.datetime.now()
         return render(request, 'user/personalArea.html',
-                      {'user_is_leader': user_is_leader, 'tasks': tasks, 'current_date': current_date})
+                      {'user_is_leader': user_is_leader, 'tasks': tasks, 'current_date': current_date, 'is_favorites': is_favorites})
     else:
         return redirect('sign_in')
 
@@ -95,3 +101,37 @@ def change_status(request, pk):
         task.status_id = 1
     task.save()
     return redirect('personal_area')
+
+
+class updateTaskView(UpdateView):
+    model = Task
+    form_class = editTaskForm
+    template_name = 'user/edittask.html'
+    success_url = 'personal_area'
+
+    def form_valid(self, form):
+        form.save()
+        return redirect(self.success_url)
+
+
+def delete_task(request, pk):
+    task = Task.objects.get(id=pk)
+    task.delete()
+    return redirect('personal_area')
+
+
+def addFavorite(request, pk):
+    if request.user.is_authenticated:
+        task = Task.objects.get(id=pk)
+        favorite_exists = FavoriteModel.objects.filter(user=request.user, task=task).exists()
+        if favorite_exists:
+            FavoriteModel.objects.filter(user=request.user, task=task).delete()
+        else:
+            favorite = FavoriteModel()
+            favorite.task = task
+            favorite.user = request.user
+            favorite.save()
+        return redirect('personal_area')
+    else:
+        return redirect('sign_in')
+

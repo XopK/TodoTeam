@@ -61,6 +61,7 @@ class LoginForm(forms.Form):
         required=True
     )
 
+
 class addTaskForm(ModelForm):
     class Meta:
         model = Task
@@ -103,6 +104,44 @@ class addTaskForm(ModelForm):
         }
 
 
+class editTaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ('title_task', 'description_task', 'date_task', 'task_time_start', 'task_time_end')
 
+        widgets = {
+            "title_task": TextInput(
+                attrs={
+                    "class": "form-control",
+                    "id": "title_task",
+                }
+            ),
+            "description_task": Textarea(
+                attrs={
+                    "class": "form-control",
+                    "id": "description_task",
+                }
+            ),
+            "date_task": DateInput(
+                attrs={
+                    "class": "form-control",
+                    "id": "date_task",
+                    'type': 'date'
+                }
 
-
+            ),
+            "task_time_start": TimeInput(
+                attrs={
+                    "class": "form-control",
+                    "id": "task_time_start",
+                    'type': 'time'
+                }
+            ),
+            "task_time_end": TimeInput(
+                attrs={
+                    "class": "form-control",
+                    "id": "task_time_end",
+                    'type': 'time'
+                }
+            ),
+        }
