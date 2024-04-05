@@ -50,8 +50,8 @@
     <div class="offcanvas-body">
         <aside class="container_user d-flex flex-column gap-3">
             <div>
-                <form class="search">
-                    <input type="text" class="search-field" placeholder="Поиск">
+                <form class="search" method="GET">
+                    <input type="text" name="q" class="search-field" placeholder="Поиск">
                     <img src="{% static 'main/image/mingcute_search.svg' %}" alt="" class="search-icon">
                 </form>
             </div>
@@ -59,31 +59,39 @@
             <div>
                 <ul class="ul_tasks d-flex flex-column gap-2">
                     <li class="d-flex">
-                        <img src="{% static 'main/image/Vector.svg'%}">
-                        <a href="" class="text-decoration-none">Сегодня</a>
-                    </li>
-                    <li class="d-flex">
-                        <img src="{% static 'main/image/material-symbols_star.svg'%}" style="width: 20px">
-                        <a href="" class="text-decoration-none">Завтра</a>
-                    </li>
-                    <li class="d-flex">
-                        <img src="{% static 'main/image/mdi_calendar.svg'%}">
-                        <a href="" class="text-decoration-none">На всю неделю</a>
+                        <img src="{% static 'main/image/twemoji_infinity.svg'%}">
+                        <a href="{% url 'personal_area' %}" class="text-decoration-none">Все</a>
                     </li>
                     <li class="d-flex">
                         <img src="{% static 'main/image/twemoji_infinity.svg'%}">
-                        <a href="" class="text-decoration-none">Все</a>
+                        <a href="{% url 'logout' %}" class="text-decoration-none">Выход</a>
                     </li>
                 </ul>
             </div>
             <hr>
-            <ul class="ul_tasks d-flex flex-column gap-2">
-                <li class="d-flex">
-                    <a href="" class="text-decoration-none">Настройки</a>
-                </li>
-                <li class="d-flex">
-                    <a href="{% url 'logout' %}" class="text-decoration-none">Выход</a>
-                </li>
+            <ul class="ul_tasks">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Моя команда
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    {% for member in team_members %}
+                                    <li>{{ member.username }}</li>
+                                    {% empty %}
+                                    <li>Участников нет</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul>
             <hr>
         </aside>

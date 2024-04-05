@@ -1,5 +1,7 @@
 from django.db import models
 from user.models import Command
+from user.models import favorite
+
 
 class Task(models.Model):
     title_task = models.CharField(max_length=100)

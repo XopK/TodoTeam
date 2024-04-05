@@ -1,4 +1,3 @@
-import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -8,8 +7,12 @@ from .forms import RegistrationForm, LoginForm, addTaskForm, editTaskForm
 from django.contrib.auth import logout
 from .models import Command, CommandUser
 from .models import favorite as FavoriteModel
-from task.models import Task
+from task.models import Task, TaskStatus
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from datetime import datetime, timedelta
+from django.db.models import Q
+
 
 
 def registration(request):
@@ -51,20 +54,42 @@ def personalArea(request):
         if CommandUser.objects.filter(user_id=user_id).exists():
             command_user = CommandUser.objects.get(user_id=user_id)
             command = command_user.command
-            tasks = Task.objects.filter(command=command)
+            q = request.GET.get('q')
+            if q:
+                tasks = Task.objects.filter(Q(title_task__startswith=q) | Q(description_task__startswith=q), command=command).order_by('-created_at')
+
+            else:
+                tasks = Task.objects.filter(command=command).order_by('-created_at')
             user_is_leader = command_user.is_leader
-            is_favorites = FavoriteModel.objects.filter(user_id=user_id,
-                                                        task_id__in=[task.id for task in tasks]).exists()
+            team_members = CommandUser.objects.filter(command=command).values_list('user_id', flat=True)
+            team_members = User.objects.filter(id__in=team_members)
+            favorite_tasks = FavoriteModel.objects.filter(user=request.user)
+            for task in tasks:
+                if task in favorite_tasks:
+                    task.is_favorite = True
+                else:
+                    task.is_favorite = False
+
+                if task.date_task < datetime.now().date() or (task.date_task == datetime.now().date() and task.task_time_end < datetime.now().time()):
+                    task.status = TaskStatus.objects.get(name_task='Просрочено')
+                    task.save()
+
         else:
             tasks = []
             user_is_leader = False
-            is_favorites = False
+            team_members = []
 
-        current_date = datetime.datetime.now()
-        return render(request, 'user/personalArea.html',
-                      {'user_is_leader': user_is_leader, 'tasks': tasks, 'current_date': current_date, 'is_favorites': is_favorites})
+        current_date = datetime.now()
+        context = {
+            'user_is_leader': user_is_leader,
+            'tasks': tasks,
+            'current_date': current_date,
+            'team_members': team_members,
+        }
+        return render(request, 'user/personalArea.html', context)
     else:
         return redirect('sign_in')
+
 
 
 @login_required
@@ -134,4 +159,3 @@ def addFavorite(request, pk):
         return redirect('personal_area')
     else:
         return redirect('sign_in')
-
