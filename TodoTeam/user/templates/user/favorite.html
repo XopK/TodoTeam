@@ -20,7 +20,7 @@
         </div>
         {% endfor %}
         <div class="d-flex justify-content-between align-items-center die">
-            <p>Ваши задачи</p>
+            <p>Избранное</p>
             {% if user_is_leader %}
             <a href="{% url 'add_task' %}" class="text-white" style="text-decoration: none">
                 Добавить
@@ -60,11 +60,9 @@
                     <a href="{% url 'deleteTask' task.id %}">
                         <img src="{% static 'main/image/maki_cross.svg'%}" alt="close">
                     </a>
-                    {% if task.status_id != 3 %}
                     <a href="{% url 'updateTask' task.id %}">
                         <img src="{% static 'main/image/Subtract.svg'%}" alt="close">
                     </a>
-                    {% endif %}
                     {% endif %}
                     {% with task.is_favorite|default:False as is_favorite %}
                     {% if is_favorite %}
@@ -82,7 +80,7 @@
         </div>
         {% empty %}
         <div class="list mb-3 row my-3">
-            <h3>Задач на сегодня нет</h3>
+            <h3>Нет избранных</h3>
         </div>
         {% endfor %}
 

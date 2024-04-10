@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from user.models import Command
 from user.models import favorite
@@ -13,6 +14,7 @@ class Task(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     status = models.ForeignKey('TaskStatus', on_delete=models.CASCADE, null=True, blank=True)
     command = models.ForeignKey(Command, on_delete=models.CASCADE, null=True, blank=True)
+    user_take = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='tasks_taken')
 
     def __str__(self):
         task_title = self.title_task

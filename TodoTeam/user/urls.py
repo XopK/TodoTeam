@@ -12,4 +12,5 @@ urlpatterns = [
     path('personalArea/<int:pk>/edit', updateTaskView.as_view(), name='updateTask'),
     path('personalArea/<int:pk>/delete', views.delete_task, name='deleteTask'),
     path('personalArea/<int:pk>/favorite', views.addFavorite, name='favorite'),
+    path('personalArea/favorite', views.favorite, name='favorite'),
 ]

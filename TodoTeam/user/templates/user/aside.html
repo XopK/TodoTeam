@@ -63,19 +63,28 @@
                         <a href="{% url 'personal_area' %}" class="text-decoration-none">Все</a>
                     </li>
                     <li class="d-flex">
-                        <img src="{% static 'main/image/twemoji_infinity.svg'%}">
+                        <img width="22px" height="20px" src="{% static 'main/image/heart_logo.svg'%}">
+                        <a href="{% url 'favorite' %}" class="text-decoration-none">Избранное</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="{% static 'main/image/exit.svg'%}">
                         <a href="{% url 'logout' %}" class="text-decoration-none">Выход</a>
                     </li>
                 </ul>
             </div>
             <hr>
             <ul class="ul_tasks">
+
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Моя команда
+                                {% if team_name %}
+                                {{ team_name }}
+                                {% else %}
+                                Нет команды
+                                {% endif %}
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse"
