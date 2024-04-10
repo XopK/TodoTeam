@@ -1,7 +1,10 @@
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from django.views.generic import UpdateView, DeleteView
 
 from .forms import RegistrationForm, LoginForm, addTaskForm, editTaskForm
@@ -78,6 +81,21 @@ def personalArea(request):
                         task.status = TaskStatus.objects.get(name_task='Просрочено')
                         task.save()
 
+                        user_email = task.user_take.email
+
+                        subject = 'Задача просрочена'
+                        message = f'Задача "{task.title_task}" просрочена. Пожалуйста, выполните ее в ближайшее время.'
+
+                        # Отправляем письмо
+                        send_mail(
+                            subject=subject,
+                            message=message,
+                            from_email=settings.EMAIL_HOST_USER,
+                            recipient_list=[user_email],
+                            fail_silently=False,
+                        )
+
+
         else:
             tasks = []
             team_name = None
@@ -126,6 +144,20 @@ def favorite(request):
                             task.date_task == datetime.now().date() and task.task_time_end < datetime.now().time()):
                         task.status = TaskStatus.objects.get(name_task='Просрочено')
                         task.save()
+
+                        user_email = task.user_take.email
+
+                        subject = 'Задача просрочена'
+                        message = f'Задача "{task.title_task}" просрочена. Пожалуйста, выполните ее в ближайшее время.'
+
+                        # Отправляем письмо
+                        send_mail(
+                            subject=subject,
+                            message=message,
+                            from_email=settings.EMAIL_HOST_USER,
+                            recipient_list=[user_email],
+                            fail_silently=False,
+                        )
 
         else:
             tasks = []
