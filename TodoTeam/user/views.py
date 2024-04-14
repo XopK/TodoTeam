@@ -81,20 +81,22 @@ def personalArea(request):
                         task.status = TaskStatus.objects.get(name_task='Просрочено')
                         task.save()
 
-                        user_email = task.user_take.email
+                        if task.user_take is not None:
+                            user_email = task.user_take.email
 
-                        subject = 'Задача просрочена'
-                        message = f'Задача "{task.title_task}" просрочена. Пожалуйста, выполните ее в ближайшее время.'
+                            subject = 'Задача просрочена'
+                            message = f'Задача "{task.title_task}" просрочена. Пожалуйста, выполните ее в ближайшее время.'
 
-                        # Отправляем письмо
-                        send_mail(
-                            subject=subject,
-                            message=message,
-                            from_email=settings.EMAIL_HOST_USER,
-                            recipient_list=[user_email],
-                            fail_silently=False,
-                        )
-
+                            # Отправляем письмо
+                            send_mail(
+                                subject=subject,
+                                message=message,
+                                from_email=settings.EMAIL_HOST_USER,
+                                recipient_list=[user_email],
+                                fail_silently=False,
+                            )
+                        else:
+                            print("task.user_take is None")
 
         else:
             tasks = []
